@@ -10,6 +10,7 @@
     flex-direction: column;
     justify-content: left;
     align-items: left;
+    background-color: #ebeff7;
 }
 
 .footer {
@@ -57,7 +58,7 @@
 }
 
 .code {
-    background: #fafafa;
+    background: #d4f8de;
     border-radius: 5px;
     padding: 0.75rem;
     font-size: 1.1rem;
@@ -82,9 +83,9 @@
     border: 1px solid #eaeaea;
     border-radius: 10px;
     transition: color 0.15s ease, border-color 0.15s ease;
-    max-width: 400px;
+    max-width: 370px;
     margin-left: auto;
-    margin-right: 0;
+    margin-right: auto;
 }
 
 .card:hover,

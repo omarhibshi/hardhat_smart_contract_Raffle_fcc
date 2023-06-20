@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dotenv": "^16.1.4",
+    "ethers": "5.7.2",
     "moralis-v1": "^1.13.0",
     "next": "13.4.5",
     "react": "18.2.0",

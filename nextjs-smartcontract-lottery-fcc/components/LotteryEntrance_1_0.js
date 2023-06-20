@@ -1,4 +1,4 @@
-import { contractAddresses, abi, EVENTS } from "../constants/index"
+import { contractAddresses, abi } from "../constants/index"
 import { useMoralis, useWeb3Contract } from "react-moralis"
 import { useEffect, useState } from "react"
 import { ethers } from "ethers"
@@ -14,7 +14,6 @@ export default function LotteryEntrance() {
     const { chainId: chainIdHex, isWeb3Enabled } = useMoralis() // Pull up "chainId" from Moralis and rename it to "chainIdHex"
 
     const chainId = parseInt(chainIdHex).toString()
-
     const raffleAddress =
         chainId in contractAddresses ? contractAddresses[chainId][0] : null
 
@@ -90,38 +89,13 @@ export default function LotteryEntrance() {
         }
     }
 
-    useEffect(() => {
-        const raffleContract = getContract()
-        raffleContract.on(EVENTS.WINNER_PICKED, (winnerContAdress) => {
-            console.log(
-                EVENTS.WINNER_PICKED,
-                `WinnerPicked event triggered and winner  is ${winnerContAdress}`
-            )
-            setRecentWinner(winnerContAdress)
-            setEntranceFee(ethers.utils.parseUnits("0.01", 18))
-            setNumberOfPlayers(0)
-        })
-        return () => {
-            raffleContract.removeAllListeners()
-        }
-    }, [])
-
-    const getContract = () => {
-        const provider = new ethers.providers.Web3Provider(window.ethereum)
-        const signer = provider.getSigner()
-        const contract = new ethers.Contract(
-            "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
-            abi,
-            signer
-        )
-        return contract
-    }
-
     return (
         <div>
             {raffleAddress ? (
                 <p align="center">
-                    <div>Contract address : {raffleAddress}</div>
+                    <div className={homeStyles.description}>
+                        Contract address : {raffleAddress}
+                    </div>
                     <br></br>
                     <div className={homeStyles.logo}>
                         Entrance Fee :{" "}
