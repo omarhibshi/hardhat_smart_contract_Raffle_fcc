@@ -90,6 +90,7 @@ export default function LotteryEntrance() {
         }
     }
 
+    //this useEffect will listen for the WinnerPicked event and update the UI
     useEffect(() => {
         const raffleContract = getContract()
         raffleContract.on(EVENTS.WINNER_PICKED, (winnerContAdress) => {
