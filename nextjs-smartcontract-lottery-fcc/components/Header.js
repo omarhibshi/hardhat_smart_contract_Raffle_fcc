@@ -8,9 +8,9 @@ export default function Header() {
     return (
         <header>
             <h1 className={headerStyles.title}>
-                {" "}
                 <span>Nextjs Smart Contract</span> Lottery
             </h1>
+
             <div className={homeStyles.card}>
                 <ConnectButton />
             </div>
