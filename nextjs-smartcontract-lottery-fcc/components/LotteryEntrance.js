@@ -101,6 +101,13 @@ export default function LotteryEntrance() {
             setRecentWinner(winnerContAdress)
             setEntranceFee(ethers.utils.parseUnits("0.01", 18))
             setNumberOfPlayers(0)
+            dispatch({
+                type: "info",
+                message: `Winner is ${winnerContAdress}`,
+                title: "Winner Picked",
+                position: "topR",
+                icon: "🏅️",
+            })
         })
         return () => {
             raffleContract.removeAllListeners()
@@ -111,7 +118,7 @@ export default function LotteryEntrance() {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
         const contract = new ethers.Contract(
-            "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+            "0xD9ac9c936F73dA304EbfD0e6d12D35E8df8DaFcB",
             abi,
             signer
         )

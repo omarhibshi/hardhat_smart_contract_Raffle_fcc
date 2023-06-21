@@ -11,19 +11,12 @@ const inter = Inter({ subsets: ["latin"] })
 
 export default function Home() {
     return (
-        <main className={`${styles.main} ${inter.className}`}>
-            <div>
-                <Head>
-                    <title>Smart Contract Lottery</title>
-                    <meta
-                        name="description"
-                        content="Our Smart Contract Lottery"
-                    />
-                    <link rel="icon" href="/favicon.ico" />
-                </Head>
-                <Header />
-                <LotteryEntrance />
-            </div>
-        </main>
+        <div>
+            <title>Smart Contract Lottery</title>
+            <meta name="description" content="Our Smart Contract Lottery" />
+            <link rel="icon" href="/favicon.ico" />
+            <Header />
+            <LotteryEntrance />
+        </div>
     )
 }
